@@ -36,4 +36,14 @@ public class Library {
             member.displayInfo();
         }
     }
+
+    public void borrowBook(String isbn, Member member) {
+        for (Book book : books) {
+            if (book.isbn.equals(isbn)) {
+                book.borrow(member); // Polymorphism through interface
+                return;
+            }
+        }
+        System.out.println("Book not found.");
+    }
 }

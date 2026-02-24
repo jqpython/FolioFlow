@@ -1,14 +1,15 @@
 package folioflow.src;
 
-public class Book {
+public abstract class Book implements Borrowable {
 
-    private String id;
-    private String title;
-    private String isbn;
+    protected String title;
+    protected String author;
+    protected String isbn;
+    protected boolean borrowed = false;
 
-    public Book(String id, String title, String isbn) {
-        this.id = id;
+    public Book(String title, String author, String isbn) {
         this.title = title;
+        this.author = author;
         this.isbn = isbn;
     }
 
@@ -16,9 +17,27 @@ public class Book {
         return title;
     }
 
-    public void displayInfo() {
-        System.out.println(
-            "Book ID: " + id + ", Title: " + title + ", ISBN: " + isbn
-        );
+    @Override
+    public boolean isBorrowed() {
+        return borrowed;
     }
+
+    @Override
+    public void borrow(Member member) {
+        if (!borrowed) {
+            // not borrowed = true
+            borrowed = true; // replace borrowed to true
+            System.out.println(member.getName() + " has borrowed " + title);
+        } else {
+            System.out.println(title + " is already borrowed.");
+        }
+    }
+
+    @Override
+    public void returnItem() {
+        borrowed = false;
+        System.out.println(title + " has been returned.");
+    }
+
+    public abstract void displayInfo(); // abstract method
 }
