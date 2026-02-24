@@ -11,16 +11,14 @@ public class Main {
             "234234",
             "A1"
         );
-        Book book2 = new EBook("2000", "To Kill a Mockingbird", "345345", 10);
 
         Member alice = new Member("Alice", 1);
-
         library.addBook(book1);
-        library.addBook(book2);
+        library.addMember(alice);
 
         library.borrowBook("111", alice);
         library.borrowBook("111", alice); // test already borrowed
 
-        book1.returnItem();
+        library.returnBook("111");
     }
 }
