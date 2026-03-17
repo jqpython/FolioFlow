@@ -1,9 +1,11 @@
 package folioflow.src;
 
+import java.util.Objects;
+
 public class Member {
 
-    protected String name;
-    protected int memberId;
+    private String name;
+    private int memberId;
 
     public Member(String name, int memberId) {
         this.name = name;
@@ -18,7 +20,21 @@ public class Member {
         return memberId;
     }
 
-    public void displayInfo() {
-        System.out.println("Member Name: " + name + ", Member ID: " + memberId);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Member)) return false;
+        Member member = (Member) o;
+        return memberId == member.memberId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(memberId);
+    }
+
+    @Override
+    public String toString() {
+        return name + " (ID: " + memberId + ")";
     }
 }

@@ -2,7 +2,7 @@ package folioflow.src;
 
 public class PhysicalBook extends Book {
 
-    private String shelfLocation; //address added
+    private String shelfLocation;
 
     public PhysicalBook(
         String title,

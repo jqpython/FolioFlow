@@ -2,22 +2,25 @@ package folioflow.src;
 
 public class PremiumMember extends Member {
 
-    private int borrowLimit;
+    private String membershipLevel;
 
-    public PremiumMember(String name, int memberId, int borrowLimit) {
-        super(name, memberId); //calling parent constructor
-        this.borrowLimit = borrowLimit;
+    public PremiumMember(String name, int memberId, String membershipLevel) {
+        super(name, memberId);
+        this.membershipLevel = membershipLevel;
+    }
+
+    public String getMembershipLevel() {
+        return membershipLevel;
     }
 
     @Override
-    public void displayInfo() {
-        System.out.println(
-            "Premium Member Name: " +
-                name +
-                ", Member ID: " +
-                memberId +
-                ", Borrow Limit: " +
-                borrowLimit
+    public String toString() {
+        return (
+            super.getName() +
+            " (ID: " +
+            super.getMemberId() +
+            ") Level: " +
+            membershipLevel
         );
     }
 }

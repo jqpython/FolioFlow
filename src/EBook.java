@@ -11,16 +11,6 @@ public class EBook extends Book {
 
     @Override
     public void displayInfo() {
-        System.out.println(
-            "EBook: " +
-                title +
-                " by " +
-                author +
-                " (ISBN: " +
-                isbn +
-                ", Size: " +
-                fileSizeMB +
-                "MB)"
-        );
+        System.out.println("EBook: " + title + " | Size: " + fileSizeMB + "MB");
     }
 }

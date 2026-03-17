@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 public class Loan {
 
-    private final Book book; // Composition
-    private final Member member; // Composition
+    private final Book book;
+    private final Member member;
     private final LocalDate loanDate;
     private LocalDate returnDate;
 

@@ -1,5 +1,7 @@
 package folioflow.src;
 
+import java.util.Objects;
+
 public abstract class Book {
 
     protected String title;
@@ -20,5 +22,18 @@ public abstract class Book {
         return isbn;
     }
 
-    public abstract void displayInfo(); // abstract method
+    public abstract void displayInfo();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return Objects.equals(isbn, book.isbn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn);
+    }
 }
